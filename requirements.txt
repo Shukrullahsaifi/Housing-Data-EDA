@@ -1,0 +1,31 @@
+cat requirements.txt
+cat > requirements.txt
+pandas
+numpy
+matplotlib
+seaborn
+jupytercat requirements.txt
+rm requirements.txt
+pandas
+numpy
+matplotlib
+seaborn
+jupyter
+cat requirements.txt
+cat requirements.txt
+rm -f requirements.txt
+
+echo "pandas" >> requirements.txt
+echo "numpy" >> requirements.txt
+echo "matplotlib" >> requirements.txt
+echo "seaborn" >> requirements.txt
+echo "jupyter" >> requirements.txt
+rm -f requirements.txt
+
+echo "pandas" >> requirements.txt
+echo "numpy" >> requirements.txt
+echo "matplotlib" >> requirements.txt
+echo "seaborn" >> requirements.txt
+echo "jupyter" >> requirements.txt
+clear
+clear
