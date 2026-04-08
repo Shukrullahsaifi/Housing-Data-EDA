@@ -1,84 +1,156 @@
-# Housing-Data-EDA
+# Housing & Income Data Analysis
 
 ## Overview
-This project presents a comprehensive Exploratory Data Analysis (EDA) of a 3,000‑row U.S. housing dataset. The goal is to transform raw, inconsistent real‑estate data into clear insights that support informed decision‑making for buyers, investors, analysts, and real‑estate professionals.
-The analysis follows industry‑standard data‑cleaning practices, applies ethical visualization principles, and focuses on uncovering meaningful trends related to pricing, home characteristics, and market behavior.
+This project presents a comprehensive data analysis of U.S. housing data combined with ZIP code–level income data. The goal is to transform raw, inconsistent datasets into meaningful insights about housing prices, affordability, and market behavior.
+
+The analysis integrates two datasets using SQL and explores how property characteristics and local income levels interact to influence housing value. The final output is a professional, portfolio-ready project demonstrating data cleaning, exploratory analysis, database design, and data-driven storytelling.
+
+---
 
 ## Project Motivation
-The U.S. housing market is complex, competitive, and constantly evolving. Raw housing data is often messy, inconsistent, and difficult to interpret without proper cleaning and analysis.
-This project was created to:
-- Strengthen professional‑level data‑analysis skills
-- Build a polished, portfolio‑ready demonstration of data wrangling & visualization
-- Understand what drives changes in home prices and affordability
-- Support real‑estate investment decisions with objective data
-- Develop a clear, ethical, and presentation‑ready data story
+The U.S. housing market is complex and influenced by both property features and economic conditions. Raw data alone is not sufficient to understand pricing patterns or affordability.
+
+This project was developed to:
+
+- Strengthen real-world data analysis and SQL skills  
+- Build a complete, portfolio-ready analytics project  
+- Understand how income impacts housing prices and affordability  
+- Apply data cleaning, feature engineering, and visualization techniques  
+- Create a clear and professional data narrative  
+
+---
 
 ## Business Value
-A well‑structured housing dataset unlocks insights for:
+This analysis provides insights for multiple audiences:
 
-### Real‑Estate Professionals
-- Spot pricing patterns across property types
-- Understand how square footage, bedrooms, and bathrooms impact value
+### Real Estate Professionals
+- Identify pricing trends across different regions  
+- Understand how property characteristics affect value  
 
 ### Investors
-- Calculate actionable metrics like price per square foot
-- Compare homes using quartile‑based price bands
+- Evaluate affordability using price-to-income ratios  
+- Identify potentially undervalued or overpriced areas  
 
 ### Data Teams
-- Create a foundation for prediction models and dashboards
-- Ensure clear, accurate, and ethical visual communication
+- Demonstrate a clean data pipeline (EDA → SQL → insights)  
+- Provide a foundation for predictive modeling or dashboards  
+
+---
 
 ## Dataset Description
-The dataset contains ~3,000 U.S. residential property records with fields such as:
-- Price
-- Square Footage (area_sqft)
-- Bedrooms & Bathrooms
-- Lot Size
-- Year Built
-- Property Type
-- City, State, Zipcode
-- Days on Market
 
-A full data dictionary is included in the notebook.
+### Housing Dataset (~3,000 records)
+- Price  
+- Square Footage (`area_sqft`)  
+- Bedrooms & Bathrooms  
+- Property Type  
+- City, State, ZIP Code  
+- Additional listing attributes  
 
-## Key Steps in the Analysis
+### Income Dataset (ZIP-level)
+- ZIP Code  
+- State Code  
+- Household Count  
+- Total Adjusted Gross Income  
+- Average Household Income  
 
-### 1. Importing & Inspecting the Data
-- Verified shape, structure, and schema
-- Identified missing values, duplicates, and type issues
+---
 
-### 2. Data Cleaning & Wrangling
-- Renamed columns into snake_case
-- Removed symbols and characters from numeric fields
-- Converted data types correctly
-- Handled missing values using industry best practices
-- Created engineered features:
-  - `price_per_sqft`
-  - `price_band` (quartiles)
+## Project Structure
 
-### 3. Exploratory Data Analysis
-- Summary statistics
-- Grouped insights
-- Distribution checks
-- Relationship analysis
+### Section 1 — Housing Data Analysis
+- Data cleaning and preprocessing  
+- Feature engineering (`price_per_sqft`, price bands)  
+- Exploratory analysis of property characteristics  
+- Visualization of pricing trends  
 
-### 4. Ethical Visualization Practices
-- Non‑misleading scales
-- Clear labels & neutral color choices
-- Accessibility adjustments
-- Chart simplicity & integrity
+---
 
-## Visualizations Included
-- **Correlation heatmap**
-- **Scatter plot: area vs price**
-- **Pair plot with KDE diagonals**
-- **Histogram of price**
-- **Bar chart by property type**
+### Section 2 — Income Data Analysis
+- Cleaning and standardization of income data  
+- Aggregation at ZIP level  
+- Distribution and variability analysis  
+- Economic context for housing markets  
 
-Each chart includes markdown explaining:
-- What question it answers
-- Why the chart type fits
-- How ethical visualization principles were applied
+---
+
+### Section 3 — Data Integration & Advanced Analysis
+- Built a SQLite database  
+- Stored datasets as relational tables  
+- Performed SQL joins to combine housing and income data  
+- Created a unified dataset (`master_df`)  
+
+Key analyses:
+- Price vs income relationship  
+- Price per square foot across income levels  
+- Affordability analysis using price-to-income ratio  
+- Market segmentation (undervalued vs high-pressure areas)  
+
+---
+
+## Key Questions Answered
+
+- Do higher-income ZIP codes have higher home prices?  
+- How does price per square foot vary across income levels?  
+- Are some areas overpriced relative to local income?  
+- What features most strongly influence housing prices?  
+
+---
+
+## Key Insights
+
+- Housing prices generally increase with income, but not perfectly  
+- Price per square foot is higher in wealthier areas  
+- Some ZIP codes show affordability pressure (high price-to-income ratios)  
+- Property size is the strongest driver of price  
+- Market dynamics are influenced by both property features and location economics  
+
+---
+
+## Database & SQL
+
+The project uses SQLite to structure and integrate data.
+
+### Tables:
+- `property_listings`
+- `neighborhood_income`
+- `master_df`
+
+### Key Concepts:
+- LEFT JOIN on ZIP code  
+- Aggregation and grouping  
+- Data validation and consistency checks  
+
+---
+
+## ERD & Schema
+
+An Entity Relationship Diagram (ERD) was created to represent the database structure.
+
+Relationship:
+- One ZIP code → Many housing listings  
+
+This design ensures:
+- minimal data duplication  
+- scalable analysis  
+- clear relational structure  
+
+---
+
+## Visualizations
+
+The project includes multiple visualizations such as:
+
+- Correlation heatmap  
+- Price vs square footage scatter plots  
+- Price distribution histograms  
+- Price per square foot analysis  
+- Affordability comparisons by ZIP code  
+- Market segmentation plots  
+
+Each visualization is accompanied by clear explanations and interpretation.
+
+---
 
 ## How to Run
 
@@ -92,7 +164,7 @@ cd Housing-Data-EDA
 ```
 python -m venv venv
 source venv/bin/activate   # macOS
-venv\Scripts\activate    # Windows
+venv\Scripts\activate      # Windows
 ```
 
 ### 3. Install Requirements
@@ -106,22 +178,28 @@ code .
 ```
 
 ## Repository Contents
-- `Housing Dataset EDA.ipynb` — Main notebook
-- `us_house_Sales_data.csv` — Dataset
-- `requirements.txt` — Dependencies
-- `README.md` — Documentation
+	- Housing Dataset EDA.ipynb — Full analysis notebook
+	- us_house_Sales_data.csv — Housing dataset
+	- housing_analysis.db — SQLite database
+	- requirements.txt — Dependencies
+	- README.md — Project documentation
+## Limitations
+	- Income data is aggregated at ZIP level, not individual household level
+	- Not all housing records matched with income data
+	- Listing prices may differ from actual sale prices
+	- External factors (interest rates, supply constraints) are not included
 
 ## Insights & Conclusions
-- Price strongly correlates with area_sqft
-- Bedrooms/bathrooms influence price, but less than square footage
-- Price‑per‑sqft stabilizes comparisons across markets
-- Outliers highlight unique properties or errors
+  - Price strongly correlates with area_sqft
+  - Bedrooms/bathrooms influence price, but less than square footage
+  - Price‑per‑sqft stabilizes comparisons across markets
+  - Outliers highlight unique properties or errors
 
 ## Future Work
-- Build price prediction models
-- Add geographic mapping
-- Combine with income or interest‑rate data
-- Extend to full capstone analysis
+  - Build price prediction models
+  - Add geographic mapping
+  - Combine with income or interest‑rate data
+  - Extend to full capstone analysis
 
 ## Author
 **Shukrullah Saifi**  
